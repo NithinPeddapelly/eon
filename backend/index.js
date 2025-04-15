@@ -53,10 +53,6 @@ yargs(hideBin(process.argv))
 
 
 
-
-
-
-
     .demandCommand(
         1,
         "Try searching for help or check the quick start guide for commands"

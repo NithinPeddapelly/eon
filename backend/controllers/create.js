@@ -2,7 +2,7 @@ const fs = require("fs").promises; // Importing the file system module to read a
 const path = require("path"); // Importing the path module to create directories
 
 
-async function launchProject() {   
+async function createProject() {   
     const projectPath = path.resolve(process.cwd(), ".eonPaths") // Getting the current working directory or folder path
     const sealPath = path.join(projectPath, "seals") // Creating a path for the seals directory
 
@@ -16,4 +16,4 @@ async function launchProject() {
     }
 }
 
-module.exports = {launchProject};
+module.exports = {createProject};

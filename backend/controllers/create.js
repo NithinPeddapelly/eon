@@ -7,11 +7,12 @@ async function createProject() {
     const sealPath = path.join(projectPath, "seals") // Creating a path for the seals directory
 
     try{
-        await fs.mkdir(projectPath, { recursive: true }); // Creating the seals directory if it doesn't exist
+        await fs.mkdir(projectPath, { recursive: true }); // Creating the project directory if it doesn't exist
         await fs.mkdir(sealPath, { recursive: true }); // Creating the seals directory if it doesn't exist
         await fs.writeFile(
             path.join(projectPath, "config.json"), JSON.stringify({bucket : process.env.S3_BUCKET_NAME})); // Creating an empty seals.json file 
-    } catch(error) {
+            console.log("Project directory created successfully!"); // Logging the success message
+        } catch(error) {
         console.error("Error creating project directory:", error); // Logging the error if the directory creation fails
     }
 }

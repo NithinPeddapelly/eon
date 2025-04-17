@@ -1,5 +1,16 @@
+const fd = require("fs").promises; // Importing the file system module to read and write files
+const path = require("path"); // Importing the path module to create directories
+
+
 async function loadFile() {
-    console.log("load command called");
+    const projectPath = path.resolve(process.cwd(), ".eonPaths") // Getting the current working directory or folder path
+    const sealingPath = path.join(projectPath, "sealing") // Creating a path for the sealing directory
+
+    try{
+
+    }catch(error) {
+    console.log("Error sealing file : ",error); // Logging the error if the directory creation fails
+    }
 }
 
 module.exports = {loadFile};

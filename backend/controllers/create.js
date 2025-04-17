@@ -3,7 +3,7 @@ const path = require("path"); // Importing the path module to create directories
 
 
 async function createProject() {   
-    const projectPath = path.resolve(process.cwd(), ".eonPaths") // Getting the current working directory or folder path
+    const projectPath = path.resolve(process.cwd(), ".eonPaths") // Getting the current working directory or folder path and it is a hidden folder
     const sealPath = path.join(projectPath, "seals") // Creating a path for the seals directory
 
     try{

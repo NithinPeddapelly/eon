@@ -1,7 +1,7 @@
 const yargs = require("yargs"); // To read command line arguments
 const { hideBin } = require("yargs/helpers"); // helps in reading arguments after a space
 
-const { launchProject } = require("./controllers/launch"); // Importing the launchProject function from controllers/launch.js
+const { createProject } = require("./controllers/create"); // Importing the createProject function from controllers/create.js
 const { loadFile } = require("./controllers/load"); // Importing the loadFile function from controllers/load.js
 const { sealFile} = require("./controllers/seal"); // Importing the seal function from controllers/seal.js
 const { uploadFile } = require("./controllers/upload"); // Importing the upload function from controllers/upload.js
@@ -12,7 +12,7 @@ const { rewindProject } = require("./controllers/rewind"); // Importing the rewi
 
 yargs(hideBin(process.argv))
     
-    .command("launch", " Initialzed a new project", {}, launchProject) // Command to be executed in the terminal
+    .command("create", " Initialzed a new project", {}, createProject) // Command to be executed in the terminal
     
     .command(
         "load <file>",

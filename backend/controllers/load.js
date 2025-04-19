@@ -7,7 +7,8 @@ async function loadFile() {
     const sealingPath = path.join(projectPath, "sealing") // Creating a path for the sealing directory
 
     try{
-
+        await fs.mkdir(sealingPath, { recursive: true }); // Creating the sealing file if it doesn't exist
+        
     }catch(error) {
     console.log("Error sealing file : ",error); // Logging the error if the directory creation fails
     }

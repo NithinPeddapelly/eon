@@ -38,7 +38,9 @@ yargs(hideBin(process.argv))
                 type: "string",
             });
         },
-        sealFile
+        (argv) => {
+            sealFile(argv.message); // Call the sealFile function with the provided message argument
+        }
     )
     .command("upload", " Upload a file to s3", {}, uploadFile) // Command to be executed in the terminal
     .command("download", " Download a file from s3", {}, downloadFile) // Command to be executed in the terminal

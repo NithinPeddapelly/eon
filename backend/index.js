@@ -23,7 +23,10 @@ yargs(hideBin(process.argv))
                 type: "string",
             });
         },
-        loadFile
+        (argv) =>{
+            loadFile(argv.file); // Call the loadFile function with the provided file argument
+        console.log(`File ${argv.file} added to the sealing area successfully!_1`); // Logging the success message using "`" to avoid escaping the special characters
+        }
     ) 
 
     .command(

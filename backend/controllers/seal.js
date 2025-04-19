@@ -5,12 +5,12 @@ const { v4: uuidv4 } = require("uuid"); // Importing the uuid module to generate
 async function seal(message) {// Function to seal a file with a given message
   const projectPath = path.resolve(process.cwd(), ".eonPaths"); // Getting the current working directory or folder path
   const sealingPath = path.join(projectPath, "sealing"); // Creating a path for the sealing directory
-  const sealsPath = path.join(projectPath, "seals"); // Creating a path for the seals directory
+  const sealPath = path.join(projectPath, "seals"); // Creating a path for the seals directory
 
   try 
   {
     const sealID = uuidv4(); // Generating a unique ID for the seal
-    const sealDir = path.join(sealsPath, sealID); // Creating a path for the seal directory
+    const sealDir = path.join(sealPath, sealID); // Creating a path for the seal directory
     await fs.mkdir(sealDir, { recursive: true }); // Creating the seal directory if it doesn't exist
     const files = await fs.readdir(sealingPath); // Reading the files in the sealing directory
 

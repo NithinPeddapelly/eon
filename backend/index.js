@@ -3,7 +3,7 @@ const { hideBin } = require("yargs/helpers"); // helps in reading arguments afte
 
 const { createProject } = require("./controllers/create"); // Importing the createProject function from controllers/create.js
 const { loadFile } = require("./controllers/load"); // Importing the loadFile function from controllers/load.js
-const { sealFile} = require("./controllers/seal"); // Importing the seal function from controllers/seal.js
+const { seal} = require("./controllers/seal"); // Importing the seal function from controllers/seal.js
 const { uploadFile } = require("./controllers/upload"); // Importing the upload function from controllers/upload.js
 const { downloadFile } = require("./controllers/download"); // Importing the download function from controllers/download.js
 const { rewindProject } = require("./controllers/rewind"); // Importing the rewind function from controllers/rewind.js
@@ -30,7 +30,7 @@ yargs(hideBin(process.argv))
     ) 
 
     .command(
-        "sealFile <message>",
+        "seal <message>",
         " seal the staged files",
         (yargs) => {
             yargs.positional("message", {
@@ -39,7 +39,7 @@ yargs(hideBin(process.argv))
             });
         },
         (argv) => {
-            sealFile(argv.message); // Call the sealFile function with the provided message argument
+            seal(argv.message); // Call the seal function with the provided message argument
         }
     )
     .command("upload", " Upload a file to s3", {}, uploadFile) // Command to be executed in the terminal

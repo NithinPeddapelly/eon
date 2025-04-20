@@ -23,9 +23,8 @@ async function downloadFile() {
             };
 
             const fileContent = await s3.getObject(params).promise(); // Downloading the file from the bucket
-            await fs.writeFile(path.join(sealDir, path.basename(Key)), fileContent.Body); // Writing the file to the seal directory
+            await fs.writeFile(path.join(projectPath, key), fileContent.Body); // Writing the file to the seal directory
         }
-
 
     }catch(error){
         console.error("unable to download : ", error);

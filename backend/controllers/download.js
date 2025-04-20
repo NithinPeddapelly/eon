@@ -24,6 +24,8 @@ async function downloadFile() {
 
             const fileContent = await s3.getObject(params).promise(); // Downloading the file from the bucket
             await fs.writeFile(path.join(projectPath, key), fileContent.Body); // Writing the file to the seal directory
+
+            console.log(`sealed files downloaded successfully from s3 `); // Logging the success message
         }
 
     }catch(error){

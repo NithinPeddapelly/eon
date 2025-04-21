@@ -19,7 +19,7 @@ async function downloadFile() {
 
             const params = {
                 Bucket: S3_BUCKET, // The name of the bucket
-                Key: Key, // The path to the file in the bucket // Destination: path.join(sealDir, path.basename(Key))
+                Key: key, // The path to the file in the bucket // Destination: path.join(sealDir, path.basename(Key))
             };
 
             const fileContent = await s3.getObject(params).promise(); // Downloading the file from the bucket

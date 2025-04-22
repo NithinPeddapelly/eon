@@ -1,6 +1,7 @@
 const fs = require("fs").promises; // Importing the file system module to read and write files
 const path = require("path"); // Importing the path module to create directories
 const { s3, S3_BUCKET } = require("../config/aws-config"); // Importing the S3 instance and the bucket name from the AWS config file
+const chalk = require('chalk'); // Importing the chalk module to colorize console output
 
 async function uploadFile() {
     const projectPath = path.resolve(process.cwd(), ".eonPaths"); // Getting the current working directory or folder path
@@ -24,9 +25,10 @@ async function uploadFile() {
             await s3.upload(params).promise(); // Uploading the file to the bucket , using promis to handle the async operation
         }
     }
-        console.log("File uploaded successfully to S3!"); // Logging the success message
+        console.log(chalk.green.bold(`\nFile uploaded successfully to S3\n`));
+
     } catch (error) {
-        console.error("Error sealing file to s3: ", error); // Logging the error if the directory creation fails
+        console.error(chalk.red.bold("\nError sealing file to s3: "), chalk.red(error), '\n');// Logging the error if the directory creation fails
     }
 }
 

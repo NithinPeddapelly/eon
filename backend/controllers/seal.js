@@ -1,6 +1,7 @@
 const fs = require("fs").promises; // Importing the file system module to read and write files
 const path = require("path"); // Importing the path module to create directories
 const { v4: uuidv4 } = require("uuid"); // Importing the uuid module to generate unique IDs
+const chalk = require('chalk'); // Importing the chalk module to colorize console output
 
 async function seal(message) {// Function to seal a file with a given message
   const projectPath = path.resolve(process.cwd(), ".eonPaths"); // Getting the current working directory or folder path
@@ -25,10 +26,10 @@ async function seal(message) {// Function to seal a file with a given message
         path.join(sealDir, "seal.json"),
         JSON.stringify({ message, date:new Date().toISOString() })
     );// Writing the seal.json file with the message and date
-    console.log(`Seal ${sealID} created successfully! with message ${message}`); // Logging the success message
-
+    console.log(chalk.green.bold(`\nSeal ${sealID} created successfully! with message ${message} \n`));
+    console.log(); // Logging the success message
   } catch (error) {
-    console.error("Error sealing file : ", error);
+    console.error(chalk.red.bold("\nError sealing file : "), chalk.red(error), '\n');
   }
 }
 

@@ -1,11 +1,11 @@
-const fs = require('fs').promises;  
+const fs = require('fs').promises; 2
 const path = require('path');
 const {s3, S3_BUCKET} = require("../config/aws-config");
+const chalk = require('chalk'); // Importing the chalk module to colorize console output
 
 async function downloadFile() {   
     const projectPath = path.resolve(process.cwd(), ".eonPaths"); // Getting the current working directory or folder path
     const sealsPath = path.join(projectPath, "seals");
-
 
     try{
         const data = await s3.listObjectsV2({Bucket: S3_BUCKET, Prefix: "seals"}).promise(); // Listing the objects in the S3 bucket with the prefix "seals"
@@ -25,11 +25,11 @@ async function downloadFile() {
             const fileContent = await s3.getObject(params).promise(); // Downloading the file from the bucket
             await fs.writeFile(path.join(projectPath, key), fileContent.Body); // Writing the file to the seal directory
 
-            console.log(`sealed files downloaded successfully from s3 `); // Logging the success message
+            console.log(chalk.green.bold(`\nsealed files downloaded successfully from s3\n`)); // Logging the success message
         }
 
     }catch(error){
-        console.error("unable to download : ", error);
+        console.error(chalk.red.bold("\nunable to download : "), chalk.red(error), '\n');
     }
 }
 

@@ -7,7 +7,7 @@ const { seal} = require("./controllers/seal"); // Importing the seal function fr
 const { uploadFile } = require("./controllers/upload"); // Importing the upload function from controllers/upload.js
 const { downloadFile } = require("./controllers/download"); // Importing the download function from controllers/download.js
 const { rewindProject } = require("./controllers/rewind"); // Importing the rewind function from controllers/rewind.js
-
+const chalk = require('chalk'); // Importing the chalk module to colorize console output
 
 
 yargs(hideBin(process.argv))
@@ -25,7 +25,7 @@ yargs(hideBin(process.argv))
         },
         (argv) =>{
             loadFile(argv.file); // Call the loadFile function with the provided file argument
-        console.log(`File ${argv.file} added to the sealing area successfully!_1`); // Logging the success message using "`" to avoid escaping the special characters
+            console.log(chalk.green.bold(`File ${argv.file} loadFile fuction called`)); // Log the file name to the console
         }
     ) 
 

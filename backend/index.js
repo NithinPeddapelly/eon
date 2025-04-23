@@ -53,7 +53,10 @@ yargs(hideBin(process.argv))
                 type: "string",
             });
         },
-        rewindProject
+        (argv) => {
+            rewindProject(argv.sealID);// Call the rewindProject function with the provided sealID argument
+        }
+        
     )
 
 

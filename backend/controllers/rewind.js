@@ -14,6 +14,15 @@ async function rewindProject() {
     try{
         const sealDir = path.jpin(sealPath, sealID); // Creating a path for the seal directory
         const files = await readdir(sealDir); // Reading the files in the seal directory , if somthing is wrong it will throw an error that means there is no such sealID
+        const parentDir = path.resolve(sealDir, ".."); // Getting the parent directory of the seal directory
+
+        for (const file of files) {
+            await copyFile(
+                path.join(sealDir, file), 
+                path.join(parentDir, file)
+                ); // Copying the files from the seal directory to the parent directory
+        }
+        console.log(chalk.green.bold(`\nProject rewinded successfully! \n`));
 
     } catch(error){
         console.error(chalk.red.bold("\nError rewinding project : "), chalk.red(error), '\n');

@@ -2,7 +2,8 @@ const express = require("express"); // Importing the express module to create a 
 const dotenv = require("dotenv"); // Importing the dotenv module to load environment variables from a .env file
 const cors = require("cors"); // Importing the cors module to enable Cross-Origin Resource Sharing
 const mongoose = require("mongoose"); // Importing the mongoose module to interact with MongoDB
-
+const bodyParser = require("body-parser"); // Importing the body-parser module to parse incoming request bodies
+const http = require("http"); // Importing the http module to create an HTTP server
 const yargs = require("yargs"); // To read command line arguments
 const { hideBin } = require("yargs/helpers"); // helps in reading arguments after a space
 

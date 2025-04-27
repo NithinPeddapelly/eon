@@ -1,5 +1,11 @@
+const express = require("express"); // Importing the express module to create a web server
+const dotenv = require("dotenv"); // Importing the dotenv module to load environment variables from a .env file
+const cors = require("cors"); // Importing the cors module to enable Cross-Origin Resource Sharing
+const mongoose = require("mongoose"); // Importing the mongoose module to interact with MongoDB
+
 const yargs = require("yargs"); // To read command line arguments
 const { hideBin } = require("yargs/helpers"); // helps in reading arguments after a space
+
 
 const { createProject } = require("./controllers/create"); // Importing the createProject function from controllers/create.js
 const { loadFile } = require("./controllers/load"); // Importing the loadFile function from controllers/load.js

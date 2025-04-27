@@ -11,7 +11,7 @@ const chalk = require('chalk'); // Importing the chalk module to colorize consol
 
 
 yargs(hideBin(process.argv))
-    
+    .command("start", " starts a new server", {}, startServer) //starting a server
     .command("create", " Initialzed a new project", {}, createProject) // Command to be executed in the terminal
     
     .command(
@@ -66,3 +66,8 @@ yargs(hideBin(process.argv))
         "Try searching for help or check the quick start guide for commands"
     ) // Require at least one command
     .help().argv; // Display help information if no command is provided
+
+
+function startServer() {
+    console.log(chalk.blue.bold(`\nStarting server...\n`));
+}

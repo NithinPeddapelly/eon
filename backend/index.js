@@ -16,6 +16,7 @@ const { downloadFile } = require("./controllers/download"); // Importing the dow
 const { rewindProject } = require("./controllers/rewind"); // Importing the rewind function from controllers/rewind.js
 const chalk = require('chalk'); // Importing the chalk module to colorize console output
 
+dotenv.config(); // Load environment variables from .env file
 
 yargs(hideBin(process.argv))
     .command("start", " starts a new server", {}, startServer) //starting a server
@@ -76,5 +77,6 @@ yargs(hideBin(process.argv))
 
 
 function startServer() {
-    console.log(chalk.blue.bold(`\nStarting server...\n`));
+    const app = express(); // Create an express app
+    const port = process.env.PORT || 3000; // Get the port from the environment variable or default to 3000
 }

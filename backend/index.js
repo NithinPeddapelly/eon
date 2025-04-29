@@ -91,5 +91,9 @@ function startServer() {
       console.log(chalk.red.bold("MongoDB connection error", error))
     ); // Connection of MongoDB and log the result
 
+    app.use(cors({origin:"*"})); // Enable Cross-Origin Resource Sharing, overriding the default behavior
+    app.get("/", (req, res) => {
+      res.send("Eon cluster backend server is running");
+    });
 
 }

@@ -96,4 +96,20 @@ function startServer() {
       res.send("Eon cluster backend server is running");
     });
 
+    const httpServer = http.createServer(app); // Create an HTTP server
+    const io = new Server(httpServer); // Create a socket.io server
+    cors({ origin: "*",
+        methods: ["GET", "POST"],
+       
+     }); // Enable CORS for the socket.io server
+     io.on("connection", (socket) => {
+        socket.on("message", (userID) => {
+          user = userID;
+          console.log(chalk.green.bold(`\nSocket ${user} connected\n`));
+          socket.join(userId);
+          
+
+        });
+     })
+
 }

@@ -32,3 +32,6 @@ const ProjectSchema = new Schema({ // Defining a new schema for the project mode
         ref: "Issue", // This field references the Issue model
     }],
 })
+
+const Project = mongoose.model("Project", ProjectSchema); // Creating a model from the schema
+export default Project; // Exporting the Project model as the default export of this module

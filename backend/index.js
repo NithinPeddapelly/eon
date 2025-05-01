@@ -110,6 +110,14 @@ function startServer() {
           
 
         });
-     })
+     });
 
+     const db = mongoose.connection; // Get the MongoDB connection object
+
+     db.once("open", async()=>{
+      console.log(chalk.green.bold("MongoDB connection opened")); //crud operations
+     });
+
+     httpServer.listen(port, () => {
+      console.log(chalk.green.bold(`Server is running on port ${port}`))}); // Log the server start message
 }

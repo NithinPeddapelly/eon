@@ -14,7 +14,6 @@ const IssueSchema = new Schema({
     },
     status:{
         type: String,
-        required: true,
         enum: ["open", "in-progress", "closed"], // The status can only be one of these values
         default: "open", // The default status is "open"
     },

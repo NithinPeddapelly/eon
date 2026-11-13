@@ -9,3 +9,4 @@ backend/.eonPaths/seals/3e362024-e41c-4543-9aac-c0238afcf0ca/seal.json
 backend/.eonPaths/seals/3e362024-e41c-4543-9aac-c0238afcf0ca/Yo!.txt
 .eonPaths/
 backend/seal.json
+backend/.env

@@ -106,7 +106,7 @@ function startServer() {
         socket.on("message", (userID) => {
           user = userID;
           console.log(chalk.green.bold(`\nSocket ${user} connected\n`));
-          socket.join(userId);
+          socket.join(userID);
           
 
         });
